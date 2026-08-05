@@ -6,8 +6,7 @@ This project investigates Amazon product reviews using statistical analysis, mac
 
 The objective is to analyze customer sentiment, understand the relationship between product ratings and pricing, and build predictive models using Amazon product data.
 
-This project is based on my Master's Capstone in Data Science at Carolina University and is currently being improved into a research-quality portfolio project.
-
+This repository extends my Master's Capstone by improving the methodology, documentation, and reproducibility while exploring additional statistical and machine learning approaches.
 ---
 
 ## Project Status
