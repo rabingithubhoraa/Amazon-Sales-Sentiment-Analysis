@@ -140,3 +140,36 @@ Model performance was evaluated using:
 - Root Mean Squared Error (RMSE)
 - Accuracy
 - Confusion Matrix
+---
+
+# Repository Structure
+
+```
+Amazon-Sales-Sentiment-Analysis/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│
+├── src/
+│
+├── figures/
+│
+├── reports/
+│
+├── README.md
+├── requirements.txt
+└── LICENSE
+```
+
+### Folder Description
+
+| Folder | Description |
+|---------|-------------|
+| data | Raw and processed datasets |
+| notebooks | Jupyter notebooks used for analysis |
+| src | Python scripts for preprocessing, modeling, and visualization |
+| figures | Charts and visualizations generated during analysis |
+| reports | Project reports and documentation |
