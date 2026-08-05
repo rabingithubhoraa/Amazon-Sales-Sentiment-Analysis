@@ -73,3 +73,70 @@ Amazon product reviews represent one of the richest publicly available sources o
 This dataset provides an opportunity to study customer sentiment, pricing strategies, product popularity, and consumer behavior using statistical analysis and machine learning techniques.
 
 The combination of structured variables (prices, ratings, discounts) and unstructured text (customer reviews) makes the dataset particularly suitable for interdisciplinary research involving statistics, data science, and business analytics.
+---
+
+# Methodology
+
+This project follows a structured data science workflow consisting of six major stages.
+
+## 1. Data Collection
+
+The Amazon product dataset was obtained from Kaggle. The dataset contains product information, customer reviews, ratings, pricing details, and discount information.
+
+## 2. Data Preprocessing
+
+The dataset was cleaned and prepared before analysis. Data preprocessing included:
+
+- Handling missing values
+- Removing duplicate records
+- Converting data types
+- Cleaning price and discount columns
+- Feature engineering
+- Preparing textual data for sentiment analysis
+
+## 3. Exploratory Data Analysis (EDA)
+
+Exploratory data analysis was performed to better understand the dataset through statistical summaries and visualizations. The analysis focused on:
+
+- Product categories
+- Product ratings
+- Discount distribution
+- Price distribution
+- Correlation between numerical variables
+- Customer review patterns
+
+## 4. Sentiment Analysis
+
+Natural Language Processing (NLP) techniques were applied to analyze customer reviews.
+
+The project includes:
+
+- Text preprocessing
+- Tokenization
+- Stop-word removal
+- Sentiment scoring
+- TextBlob sentiment analysis
+- BERT-based sentiment classification
+
+## 5. Predictive Modeling
+
+Several machine learning algorithms were developed and compared to predict discount percentages.
+
+Models include:
+
+- Multiple Linear Regression
+- Random Forest Regression
+- Gradient Boosting
+
+Hyperparameter tuning was performed using Grid Search with Cross Validation.
+
+## 6. Model Evaluation
+
+Model performance was evaluated using:
+
+- R² Score
+- Mean Absolute Error (MAE)
+- Mean Squared Error (MSE)
+- Root Mean Squared Error (RMSE)
+- Accuracy
+- Confusion Matrix
