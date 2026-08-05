@@ -40,3 +40,36 @@ This project seeks to answer the following research questions:
 4. What insights can exploratory data analysis provide regarding customer behavior and product characteristics?
 
 5. How can statistical analysis and machine learning improve decision-making in e-commerce?
+---
+
+# Dataset
+
+## Data Source
+
+The dataset used in this project was obtained from Kaggle and contains Amazon product information, customer reviews, pricing information, product ratings, and discount details.
+
+The dataset includes information such as:
+
+- Product ID
+- Product Name
+- Product Category
+- Actual Price
+- Discounted Price
+- Discount Percentage
+- Product Rating
+- Number of Ratings
+- Review Title
+- Review Content
+- Product Description
+
+The dataset contains approximately **1,465 Amazon products** with **16 variables**, making it suitable for exploratory data analysis, predictive modeling, and natural language processing tasks.
+
+---
+
+## Why this Dataset?
+
+Amazon product reviews represent one of the richest publicly available sources of customer feedback.
+
+This dataset provides an opportunity to study customer sentiment, pricing strategies, product popularity, and consumer behavior using statistical analysis and machine learning techniques.
+
+The combination of structured variables (prices, ratings, discounts) and unstructured text (customer reviews) makes the dataset particularly suitable for interdisciplinary research involving statistics, data science, and business analytics.
