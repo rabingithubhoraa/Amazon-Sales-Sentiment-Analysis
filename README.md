@@ -103,6 +103,13 @@ Exploratory data analysis was performed to better understand the dataset through
 - Discount distribution
 - Price distribution
 - Correlation between numerical variables
+- ## Correlation Analysis
+
+The correlation heatmap below illustrates the relationships among the numerical variables in the dataset. It helps identify features with strong positive or negative correlations and provides insight into potential predictors for subsequent machine learning models.
+
+<p align="center">
+  <img src="figures/correlation_heatmap.png" alt="Correlation Heatmap" width="800">
+</p>
 - Customer review patterns
 
 ## 4. Sentiment Analysis
