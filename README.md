@@ -103,6 +103,12 @@ The analysis includes:
 These analyses provide context for the subsequent statistical and machine-learning models.
 
 ---
+### Correlation Analysis
+
+The correlation heatmap summarizes relationships among the numerical
+features used throughout the analysis.
+
+![Correlation Heatmap](figures/correlation_heatmap.png)
 
 ## Sentiment Analysis
 
@@ -118,6 +124,12 @@ TextBlob was used to calculate:
 - Review-content subjectivity
 
 The resulting distributions were visualized to examine overall patterns in customer opinion.
+#### Sentiment Polarity Distributions
+
+The following visualization compares sentiment polarity distributions
+for customer-review titles and review content.
+
+![Sentiment Polarity Distributions](figures/sentiment_polarity_distribution.png)
 
 ### VADER Sentiment Analysis
 
@@ -133,6 +145,12 @@ The analysis generated:
 The average VADER compound score was approximately **0.82**, indicating that review text in the dataset generally exhibits positive sentiment.
 
 Word clouds were also generated to explore commonly occurring terms across different sentiment ranges.
+#### VADER Sentiment Patterns
+
+VADER scores were examined across product ratings to explore how
+positive, neutral, and negative language varies with customer ratings.
+
+![VADER Sentiment by Rating](figures/vader_sentiment_by_rating.png)
 
 
 
@@ -213,6 +231,14 @@ These results demonstrate that predictive relationships are not consistent acros
 The stronger performance for Computers & Accessories suggests that price and rating information may contain more predictive information for discounting within that category, while weak or negative R² values for other categories indicate that additional variables are needed.
 
 ---
+### Training vs. Testing Performance
+
+The comparison below illustrates differences between Random Forest
+training and testing performance across product categories. The gaps
+between training and testing metrics highlight the importance of
+evaluating model generalization and potential overfitting.
+
+![Random Forest Train vs Test Metrics](figures/random_forest_train_test_metrics.png)
 
 ## Key Findings
 
