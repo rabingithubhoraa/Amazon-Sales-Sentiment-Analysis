@@ -2,181 +2,277 @@
 
 ## Overview
 
-This project investigates Amazon product reviews using statistical analysis, machine learning, and natural language processing (NLP).
+This project analyzes Amazon product and customer-review data using exploratory data analysis, statistical modeling, machine learning, and natural language processing (NLP).
 
-The objective is to analyze customer sentiment, understand the relationship between product ratings and pricing, and build predictive models using Amazon product data.
+The study examines relationships among product prices, discounts, ratings, product categories, and customer-review sentiment. It also evaluates several regression approaches for predicting product discount percentages.
 
+This repository is based on my Master's Data Science capstone project and has been organized as a reproducible research portfolio demonstrating applied data analysis, machine learning, NLP, and business analytics.
 
-This repository extends my Master's Capstone by improving the methodology, documentation, and reproducibility while exploring additional statistical and machine learning approaches.
-
-
-## Project Status
-
-🚧 Work in Progress
-
-More notebooks, documentation, and machine learning models will be added.
 ---
 
 ## Research Motivation
 
-Customer reviews are one of the most valuable sources of information in e-commerce. They provide insights into customer satisfaction, product quality, and purchasing behavior. With millions of reviews generated daily, manually analyzing customer opinions is impractical.
+Online marketplaces generate large amounts of both structured and unstructured data.
 
-This project applies statistical analysis, machine learning, and natural language processing (NLP) techniques to extract meaningful insights from Amazon product reviews. The study also investigates how product ratings, pricing, and discounts relate to customer sentiment and purchasing decisions.
+Structured information such as product prices, ratings, discounts, and product categories can provide insights into pricing patterns and product characteristics, while customer reviews provide textual information about customer experiences and opinions.
 
-The goal is to develop interpretable machine learning models that can assist businesses in understanding customer behavior and support data-driven decision-making.
+This project combines these two forms of data to explore how statistical analysis, machine learning, and NLP can be used to better understand Amazon product and review data and support data-driven business analysis.
 
 ---
 
 ## Research Questions
 
-This project seeks to answer the following research questions:
+The project focuses on the following questions:
 
-1. Can natural language processing accurately classify customer sentiment from Amazon product reviews?
+1. What patterns can be identified in Amazon product prices, discounts, ratings, and product categories?
 
-2. What relationship exists between product ratings, discounts, and customer sentiment?
+2. What sentiment patterns emerge from customer review titles and review content?
 
-3. Which machine learning model provides the best performance for predicting product discount percentages?
+3. What relationships exist among product ratings, actual prices, and discount percentages?
 
-4. What insights can exploratory data analysis provide regarding customer behavior and product characteristics?
+4. How accurately can discount percentage be predicted using product price, rating, and category information?
 
-5. How can statistical analysis and machine learning improve decision-making in e-commerce?
+5. Do ensemble machine-learning approaches improve predictive performance relative to multiple linear regression?
+
 ---
 
-# Dataset
+## Dataset
 
-## Data Source
+The dataset was obtained from Kaggle and contains Amazon product and customer-review information.
 
-The dataset used in this project was obtained from Kaggle and contains Amazon product information, customer reviews, pricing information, product ratings, and discount details.
+**Dataset size:** 1,465 products × 16 original variables
 
-The dataset includes information such as:
+Key variables include:
 
 - Product ID
-- Product Name
-- Product Category
-- Actual Price
-- Discounted Price
-- Discount Percentage
-- Product Rating
-- Number of Ratings
-- Review Title
-- Review Content
-- Product Description
+- Product name
+- Product category
+- Actual price
+- Discounted price
+- Discount percentage
+- Product rating
+- Rating count
+- Product description
+- Review title
+- Review content
+- User information
+- Product and image links
 
-The dataset contains approximately **1,465 Amazon products** with **16 variables**, making it suitable for exploratory data analysis, predictive modeling, and natural language processing tasks.
+The combination of structured product attributes and unstructured review text makes the dataset useful for investigating questions at the intersection of data science, NLP, and business analytics.
 
 ---
 
-## Why this Dataset?
+## Methodology
 
-Amazon product reviews represent one of the richest publicly available sources of customer feedback.
+### 1. Data Cleaning and Preparation
 
-This dataset provides an opportunity to study customer sentiment, pricing strategies, product popularity, and consumer behavior using statistical analysis and machine learning techniques.
+The original dataset required several preprocessing steps before analysis.
 
-The combination of structured variables (prices, ratings, discounts) and unstructured text (customer reviews) makes the dataset particularly suitable for interdisciplinary research involving statistics, data science, and business analytics.
+These included:
+
+- Converting price variables from Indian rupee-formatted strings to numerical values
+- Converting discount percentages to numerical decimal values
+- Correcting an anomalous value in the rating variable
+- Converting rating counts to numerical format
+- Examining missing values
+- Filling missing rating-count values for modeling
+- Separating hierarchical product categories into main and subcategories
+- Creating a price-difference feature
+- One-hot encoding product categories for predictive modeling
+
 ---
 
-# Methodology
+### 2. Exploratory Data Analysis
 
-This project follows a structured data science workflow consisting of six major stages.
+Exploratory analysis was conducted to investigate product, pricing, rating, and category patterns.
 
-## 1. Data Collection
+The analysis includes:
 
-The Amazon product dataset was obtained from Kaggle. The dataset contains product information, customer reviews, ratings, pricing details, and discount information.
+- Distribution of products across categories
+- Product-rating distributions
+- Actual versus discounted prices
+- Discount-percentage distributions
+- Most and least expensive products
+- Products with the largest price differences
+- Ratings by product category
+- Rating-count distributions
+- Category-level price comparisons
+- Correlation analysis among numerical variables
+- Scatter plots examining price, rating, and discount relationships
 
-## 2. Data Preprocessing
+These analyses provide context for the subsequent statistical and machine-learning models.
 
-The dataset was cleaned and prepared before analysis. Data preprocessing included:
-
-- Handling missing values
-- Removing duplicate records
-- Converting data types
-- Cleaning price and discount columns
-- Feature engineering
-- Preparing textual data for sentiment analysis
-
-## 3. Exploratory Data Analysis (EDA)
-
-Exploratory data analysis was performed to better understand the dataset through statistical summaries and visualizations. The analysis focused on:
-
-- Product categories
-- Product ratings
-- Discount distribution
-- Price distribution
-- Correlation between numerical variables
-- ## Correlation Analysis
-
-The correlation heatmap below illustrates the relationships among the numerical variables in the dataset. It helps identify features with strong positive or negative correlations and provides insight into potential predictors for subsequent machine learning models.
-
-<p align="center">
-  <img src="figures/correlation_heatmap.png" alt="Correlation Heatmap" width="800">
-</p>
-- Customer review patterns
-
-## 4. Sentiment Analysis
-
-Natural Language Processing (NLP) techniques were applied to analyze customer reviews.
-
-The project includes:
-
-- Text preprocessing
-- Tokenization
-- Stop-word removal
-- Sentiment scoring
-- TextBlob sentiment analysis
-- BERT-based sentiment classification
-
-## 5. Predictive Modeling
-
-Several machine learning algorithms were developed and compared to predict discount percentages.
-
-Models include:
-
-- Multiple Linear Regression
-- Random Forest Regression
-- Gradient Boosting
-
-Hyperparameter tuning was performed using Grid Search with Cross Validation.
-
-## 6. Model Evaluation
-
-Model performance was evaluated using:
-
-- R² Score
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- Accuracy
-- Confusion Matrix
 ---
 
-# Repository Structure
+## Sentiment Analysis
 
-```
+Customer review titles and review content were examined using multiple NLP approaches.
+
+### TextBlob
+
+TextBlob was used to calculate:
+
+- Review-title polarity
+- Review-title subjectivity
+- Review-content polarity
+- Review-content subjectivity
+
+The resulting distributions were visualized to examine overall patterns in customer opinion.
+
+### VADER Sentiment Analysis
+
+VADER sentiment analysis was also applied to customer review content.
+
+The analysis generated:
+
+- Positive sentiment scores
+- Neutral sentiment scores
+- Negative sentiment scores
+- Compound sentiment scores
+
+The average VADER compound score was approximately **0.82**, indicating that review text in the dataset generally exhibits positive sentiment.
+
+Word clouds were also generated to explore commonly occurring terms across different sentiment ranges.
+
+### Experimental BERT Analysis
+
+The notebook additionally explores transformer-based sentiment classification using the pretrained:
+
+`nlptown/bert-base-multilingual-uncased-sentiment`
+
+This component is treated as an exploratory extension. The construction of comparison labels requires further refinement before BERT classification accuracy can be interpreted as a validated model-performance result.
+
+---
+
+## Predictive Modeling
+
+The primary predictive task examines whether product discount percentage can be estimated using:
+
+- Actual price
+- Product rating
+- Main product category
+
+Several modeling approaches were evaluated.
+
+### Multiple Linear Regression
+
+A multiple linear regression model was first used as an interpretable statistical baseline.
+
+**Test R²:** `0.1564`
+
+The relatively modest R² indicates that price, rating, and product category explain only part of the variation in discount percentage.
+
+---
+
+### Random Forest Regression
+
+A Random Forest model was evaluated to capture nonlinear relationships that may not be represented adequately by linear regression.
+
+**Baseline Random Forest R²:** `0.2274`
+
+The Random Forest improved upon the linear regression baseline, suggesting the presence of nonlinear relationships in the data.
+
+---
+
+### Hyperparameter-Tuned Random Forest
+
+Grid search with cross-validation was used to investigate Random Forest hyperparameters.
+
+**Tuned Random Forest R²:** `0.3063`
+
+The tuned model improved predictive performance compared with both the linear regression and baseline Random Forest models.
+
+---
+
+### Gradient Boosting Regression
+
+Gradient Boosting was also evaluated using hyperparameter search.
+
+**Tuned Gradient Boosting R²:** `0.3223`
+
+Among the overall models evaluated in the notebook, Gradient Boosting produced the strongest test-set R².
+
+| Model | Test R² |
+|---|---:|
+| Multiple Linear Regression | 0.1564 |
+| Random Forest | 0.2274 |
+| Tuned Random Forest | 0.3063 |
+| Tuned Gradient Boosting | **0.3223** |
+
+The results suggest that ensemble methods capture more of the variation in discount percentage than the linear model, although the remaining unexplained variance indicates that additional predictors would likely be necessary for stronger predictive performance.
+
+---
+
+## Category-Level Modeling
+
+Additional models were developed separately for product categories with sufficient observations.
+
+For category-specific Random Forest models, test performance varied substantially:
+
+| Category | Test R² |
+|---|---:|
+| Computers & Accessories | **0.4195** |
+| Electronics | 0.0400 |
+| Office Products | -0.2919 |
+| Home & Kitchen | 0.0319 |
+
+These results demonstrate that predictive relationships are not consistent across product categories.
+
+The stronger performance for Computers & Accessories suggests that price and rating information may contain more predictive information for discounting within that category, while weak or negative R² values for other categories indicate that additional variables are needed.
+
+---
+
+## Key Findings
+
+The analysis produced several important observations:
+
+- Amazon product categories differ substantially in price, discount, and rating characteristics.
+- Customer-review text generally displays positive sentiment according to the lexicon-based sentiment analysis.
+- Product rating generally shows a negative relationship with discount percentage in several analyses.
+- Actual price has relatively limited linear predictive influence on discount percentage.
+- Random Forest improved predictive performance over multiple linear regression.
+- Hyperparameter tuning further improved Random Forest performance.
+- Gradient Boosting achieved the strongest overall test R² among the models evaluated.
+- Predictive performance varies considerably across product categories.
+- Price, rating, and category alone are insufficient to fully explain discounting behavior, suggesting opportunities for richer feature development.
+
+---
+
+## Limitations and Future Work
+
+This analysis also highlights several opportunities for further research.
+
+Future work could include:
+
+- Refining sentiment-label construction for supervised NLP evaluation
+- Improving transformer-based sentiment classification
+- Incorporating additional product and seller characteristics
+- Developing more advanced text features from customer reviews
+- Comparing additional ensemble and boosting methods
+- Using explainable AI techniques to interpret model predictions
+- Investigating category-specific pricing and discount strategies
+- Expanding the analysis to larger Amazon datasets
+- Conducting more rigorous cross-validation and model-comparison experiments
+
+These extensions could strengthen both predictive performance and the business interpretation of the results.
+
+---
+
+## Repository Structure
+
+```text
 Amazon-Sales-Sentiment-Analysis/
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│
-├── src/
+│   └── raw/
+│       └── amazon.csv
 │
 ├── figures/
 │
-├── reports/
+├── notebooks/
+│   └── Amazon_Sales_Sentiment_Analysis.ipynb
 │
+├── .gitignore
+├── LICENSE
 ├── README.md
-├── requirements.txt
-└── LICENSE
-```
-
-### Folder Description
-
-| Folder | Description |
-|---------|-------------|
-| data | Raw and processed datasets |
-| notebooks | Jupyter notebooks used for analysis |
-| src | Python scripts for preprocessing, modeling, and visualization |
-| figures | Charts and visualizations generated during analysis |
-| reports | Project reports and documentation |
+└── requirements.txt
