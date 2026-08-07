@@ -134,15 +134,7 @@ The average VADER compound score was approximately **0.82**, indicating that rev
 
 Word clouds were also generated to explore commonly occurring terms across different sentiment ranges.
 
-### Experimental BERT Analysis
 
-The notebook additionally explores transformer-based sentiment classification using the pretrained:
-
-`nlptown/bert-base-multilingual-uncased-sentiment`
-
-This component is treated as an exploratory extension. The construction of comparison labels requires further refinement before BERT classification accuracy can be interpreted as a validated model-performance result.
-
----
 
 ## Predictive Modeling
 
@@ -244,7 +236,7 @@ This analysis also highlights several opportunities for further research.
 
 Future work could include:
 
-- Refining sentiment-label construction for supervised NLP evaluation
+- Developing validated sentiment labels for future supervised NLP classification
 - Improving transformer-based sentiment classification
 - Incorporating additional product and seller characteristics
 - Developing more advanced text features from customer reviews
