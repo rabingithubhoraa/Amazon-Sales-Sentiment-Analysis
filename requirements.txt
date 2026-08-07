@@ -3,6 +3,9 @@ numpy
 matplotlib
 seaborn
 scikit-learn
+statsmodels
 textblob
 nltk
+wordcloud
+tqdm
 jupyter
